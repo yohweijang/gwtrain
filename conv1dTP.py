@@ -88,11 +88,10 @@ class conv1dTP(tf.keras.layers.Layer):
 
     def call(self, inputs):
         inputs_shape = tf.shape(inputs)
-        inputs_shap2 = inputs.shape
         batch_size = inputs_shape[0]
 
         l_axis   = - self._get_channel_axis()
-        length   = inputs_shap2[l_axis]
+        length   = inputs.shape[l_axis]
         kernel_l = self.kernel_size
         stride_l = self.strides
 
